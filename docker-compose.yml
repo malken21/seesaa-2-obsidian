@@ -1,0 +1,21 @@
+services:
+  wiki-scraper:
+    build: .
+    volumes:
+      # ホストの ./output フォルダをコンテナ内の出力先にマウント
+      - ./output:/app/output
+    environment:
+      # ここに対象のWiki URLを設定
+      - BASE_URL=https://seesaawiki.jp/w/staff_wiki/
+
+      # 出力先のディレクトリ
+      - OUTPUT_DIR=output
+
+      # 待機時間（秒）
+      - SLEEP_TIME=1.0
+
+      # タイムアウト設定
+      - TIMEOUT=10
+
+      # 既にファイルが存在する場合スキップするか (true/false)
+      - SKIP_EXISTING=true

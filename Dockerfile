@@ -10,6 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # スクリプトのコピー
 COPY main.py .
+COPY config.py .
+COPY core.py .
+COPY utils.py .
 
 # 実行ユーザー設定（任意：rootでの実行を避ける場合などに設定）
 # 今回はシンプルさを優先しrootのままとする
